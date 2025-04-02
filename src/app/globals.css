@@ -37,6 +37,16 @@ body {
   .animate-slide-up {
     animation: slideUp 0.5s ease-out;
   }
+
+  .pt-safe {
+    padding-top: calc(env(safe-area-inset-top) + 4rem);
+  }
+  
+  @screen md {
+    .pt-safe {
+      padding-top: calc(env(safe-area-inset-top) + 5rem);
+    }
+  }
 }
 
 @keyframes fadeIn {
