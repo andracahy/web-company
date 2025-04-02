@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { useState } from "react";
 
@@ -12,8 +14,8 @@ export default function Navbar() {
             {/* Logo */}
             <div className="flex items-center">
               <Link href="/" 
-                className="text-xl md:text-2xl font-bold bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">2
-                TechCorp2
+                className="text-xl md:text-2xl font-bold bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">
+                TechCorp
               </Link>
             </div>
 
@@ -67,10 +69,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Menu */}
-        <div className={`
-          md:hidden transform transition-all duration-300 ease-in-out
-          ${isOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}
-        `}>
+        <div className={`md:hidden transform transition-all duration-300 ease-in-out ${isOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
           <div className="bg-white border-t border-gray-100 px-4 py-2">
             <div className="space-y-1 py-3">
               <Link href="/about" 
