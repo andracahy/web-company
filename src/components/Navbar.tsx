@@ -15,7 +15,7 @@ export default function Navbar() {
             <div className="flex items-center">
               <Link href="/" 
                 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">
-                TechCorp
+                TechoCorp
               </Link>
             </div>
 
