@@ -8,11 +8,12 @@ export default function Navbar() {
     <nav className="fixed w-full z-50">
       <div className="backdrop-blur-md bg-white/70 border-b border-white/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-20">
+          <div className="flex justify-between h-16 md:h-20">
             {/* Logo */}
             <div className="flex items-center">
-              <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent hover:from-indigo-500 hover:to-violet-500 transition-all duration-300">
-                TechCorp
+              <Link href="/" 
+                className="text-xl md:text-2xl font-bold bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">2
+                TechCorp2
               </Link>
             </div>
 
@@ -50,8 +51,9 @@ export default function Navbar() {
             <div className="flex items-center md:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="text-gray-600 hover:text-indigo-600 transition-colors"
+                className="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-indigo-600 hover:bg-gray-100 transition-all"
               >
+                <span className="sr-only">Open main menu</span>
                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   {isOpen ? (
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -65,20 +67,29 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Menu */}
-        <div className={`md:hidden ${isOpen ? "block" : "hidden"}`}>
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            <Link href="/about" className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-indigo-600 hover:bg-indigo-50/50">
-              Tentang
-            </Link>
-            <Link href="/services" className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-indigo-600 hover:bg-indigo-50/50">
-              Layanan
-            </Link>
-            <Link href="/portfolio" className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-indigo-600 hover:bg-indigo-50/50">
-              Portofolio
-            </Link>
-            <Link href="/contact" className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-indigo-600 hover:bg-indigo-50/50">
-              Hubungi Kami
-            </Link>
+        <div className={`
+          md:hidden transform transition-all duration-300 ease-in-out
+          ${isOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}
+        `}>
+          <div className="bg-white border-t border-gray-100 px-4 py-2">
+            <div className="space-y-1 py-3">
+              <Link href="/about" 
+                className="block px-4 py-3 rounded-xl text-base text-gray-600 hover:text-indigo-600 hover:bg-indigo-50 transition-all">
+                Tentang
+              </Link>
+              <Link href="/services" 
+                className="block px-4 py-3 rounded-xl text-base text-gray-600 hover:text-indigo-600 hover:bg-indigo-50 transition-all">
+                Layanan
+              </Link>
+              <Link href="/portfolio" 
+                className="block px-4 py-3 rounded-xl text-base text-gray-600 hover:text-indigo-600 hover:bg-indigo-50 transition-all">
+                Portofolio
+              </Link>
+              <Link href="/contact" 
+                className="block px-4 py-3 mt-4 rounded-xl text-base text-center text-white bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 transition-all">
+                Hubungi Kami
+              </Link>
+            </div>
           </div>
         </div>
       </div>
