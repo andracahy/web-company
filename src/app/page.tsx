@@ -35,7 +35,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <motion.header 
-        initial="hidden"
+        initial="hidden" 
         animate="visible"
         variants={containerVariants}
         id="hero" 
@@ -59,7 +59,7 @@ export default function Home() {
             </h1>
             <p className="text-xl mb-8 text-gray-100">Transformasi digital yang membawa bisnis Anda ke level berikutnya</p>
             <div className="flex gap-4">
-              <Link href="/contact" 
+              <Link href="#contact" 
                 className="bg-white text-indigo-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl">
                 Mulai Sekarang
               </Link>
