@@ -16,6 +16,12 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const scrollToSection = (sectionId: string) => {
+    setIsOpen(false);
+    const element = document.getElementById(sectionId);
+    element?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 shadow-md backdrop-blur-sm' : 'bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -34,42 +40,37 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-x-1">
-            <Link href="/about" 
+            <button onClick={() => scrollToSection('about')} 
               className={`px-4 py-2 rounded-full transition-all duration-300 ${
                 scrolled 
                   ? 'text-gray-600 hover:text-indigo-600 hover:bg-indigo-50/50' 
                   : 'text-white/90 hover:text-white hover:bg-white/10'
               }`}>
               Tentang
-            </Link>
-            <Link 
-              href="/services" 
+            </button>
+            <button onClick={() => scrollToSection('services')} 
               className={`px-4 py-2 rounded-full transition-all duration-300 ${
                 scrolled 
                   ? 'text-gray-600 hover:text-indigo-600 hover:bg-indigo-50/50' 
                   : 'text-white/90 hover:text-white hover:bg-white/10'
-              }`}
-            >
+              }`}>
               Layanan
-            </Link>
-            <Link 
-              href="/portfolio" 
+            </button>
+            <button onClick={() => scrollToSection('portfolio')} 
               className={`px-4 py-2 rounded-full transition-all duration-300 ${
                 scrolled 
                   ? 'text-gray-600 hover:text-indigo-600 hover:bg-indigo-50/50' 
                   : 'text-white/90 hover:text-white hover:bg-white/10'
-              }`}
-            >
+              }`}>
               Portofolio
-            </Link>
-            <Link 
-              href="/contact" 
+            </button>
+            <button onClick={() => scrollToSection('contact')} 
               className="ml-4 px-6 py-2.5 rounded-full bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-medium 
               hover:from-indigo-500 hover:to-violet-500 transition-all duration-300 shadow-md hover:shadow-xl 
               hover:scale-105 active:scale-100"
             >
               Hubungi Kami
-            </Link>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -102,26 +103,22 @@ export default function Navbar() {
         <div className="bg-white/95 backdrop-blur-sm shadow-lg border-t border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
             <div className="flex flex-col space-y-1">
-              <Link href="/about" 
-                className="px-4 py-3 rounded-xl text-gray-600 hover:text-indigo-600 hover:bg-indigo-50/50 transition-all"
-                onClick={() => setIsOpen(false)}>
+              <button onClick={() => scrollToSection('about')} 
+                className="px-4 py-3 rounded-xl text-gray-600 hover:text-indigo-600 hover:bg-indigo-50/50 transition-all">
                 Tentang
-              </Link>
-              <Link href="/services" 
-                className="px-4 py-3 rounded-xl text-gray-600 hover:text-indigo-600 hover:bg-indigo-50/50 transition-all"
-                onClick={() => setIsOpen(false)}>
+              </button>
+              <button onClick={() => scrollToSection('services')} 
+                className="px-4 py-3 rounded-xl text-gray-600 hover:text-indigo-600 hover:bg-indigo-50/50 transition-all">
                 Layanan
-              </Link>
-              <Link href="/portfolio" 
-                className="px-4 py-3 rounded-xl text-gray-600 hover:text-indigo-600 hover:bg-indigo-50/50 transition-all"
-                onClick={() => setIsOpen(false)}>
+              </button>
+              <button onClick={() => scrollToSection('portfolio')} 
+                className="px-4 py-3 rounded-xl text-gray-600 hover:text-indigo-600 hover:bg-indigo-50/50 transition-all">
                 Portofolio
-              </Link>
-              <Link href="/contact" 
-                className="block px-4 py-3 mt-4 rounded-xl text-base text-center text-white bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 transition-all"
-                onClick={() => setIsOpen(false)}>
+              </button>
+              <button onClick={() => scrollToSection('contact')} 
+                className="block px-4 py-3 mt-4 rounded-xl text-base text-center text-white bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 transition-all">
                 Hubungi Kami
-              </Link>
+              </button>
             </div>
           </div>
         </div>
