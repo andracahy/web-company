@@ -3,6 +3,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --color-primary: #2563eb;
+  --color-secondary: #64748b;
+  --color-accent: #1d4ed8;
 }
 
 @theme inline {
@@ -47,6 +50,80 @@ body {
       padding-top: calc(env(safe-area-inset-top) + 5rem);
     }
   }
+
+  .glass-effect {
+    @apply bg-white/70 backdrop-blur-md border border-white/20;
+  }
+
+  .hover-card {
+    @apply transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-violet-600;
+  }
+
+  .section-divider {
+    @apply relative py-20;
+  }
+
+  .section-divider::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-b from-transparent via-indigo-50/30 to-transparent -skew-y-6;
+  }
+
+  .animate-slideup {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .animate-fadein {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-scale {
+    animation: scale 0.4s ease-out forwards;
+  }
+
+  .nav-scrolled {
+    @apply bg-white/80 backdrop-blur-md border-gray-200/20 shadow-lg;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .glass-effect {
+    @apply bg-white/70 backdrop-blur-md border border-white/20;
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-lg;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+
+  .reveal {
+    @apply opacity-0 translate-y-8 transition-all duration-700;
+  }
+
+  .reveal.active {
+    @apply opacity-100 translate-y-0;
+  }
+
+  .reveal-delay-1 {
+    transition-delay: 0.1s;
+  }
+
+  .reveal-delay-2 {
+    transition-delay: 0.2s;
+  }
+
+  .reveal-delay-3 {
+    transition-delay: 0.3s;
+  }
 }
 
 @keyframes fadeIn {
@@ -69,6 +146,17 @@ body {
   }
 }
 
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
@@ -85,4 +173,32 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #666;
+}
+
+/* Custom styles for interactive elements */
+.service-card {
+  @apply relative overflow-hidden rounded-2xl;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.service-card:hover .card-content {
+  transform: translateZ(20px);
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Section Transitions */
+.section-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.section-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
